@@ -228,6 +228,136 @@
         }
         footer p { font-size: 10px; letter-spacing: 2px; color: var(--text-light); }
 
+        /* ── Hero Section ── */
+        .hero {
+            position: relative;
+            width: calc(100% + 48px);
+            margin-left: -24px;
+            height: 100vh;
+            min-height: 600px;
+            max-height: 900px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('hero.jpg') center/cover no-repeat;
+            filter: brightness(0.4) saturate(0.75);
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative; z-index: 1;
+            padding: 0 32px;
+        }
+        .hero-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 300;
+            font-style: italic;
+            color: #f0ece4;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+        .hero-wifi {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            color: rgba(240,236,228,0.7);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        .hero-wifi .wifi-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .hero-wifi .wifi-icon {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* ── Guidelines Section ── */
+        .guidelines {
+            position: relative;
+            width: calc(100% + 48px);
+            margin-left: -24px;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.3s forwards;
+        }
+        .guidelines-bg {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(60,55,48,0.88), rgba(60,55,48,0.65)),
+                        url('Guidelines.JPG') center bottom/cover no-repeat;
+            z-index: 0;
+        }
+        .guidelines-inner {
+            position: relative;
+            z-index: 1;
+            padding: 56px 36px 48px;
+        }
+        .guidelines-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            font-weight: 400;
+            font-style: italic;
+            color: #f0ece4;
+            margin-bottom: 32px;
+            letter-spacing: 1px;
+        }
+        .guidelines-list {
+            list-style: none;
+            padding: 0;
+        }
+        .guidelines-list li {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(240,236,228,0.85);
+            line-height: 1.8;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(240,236,228,0.12);
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .guidelines-list li:last-child { border-bottom: none; }
+        .guidelines-list li::before {
+            content: '·';
+            font-size: 20px;
+            color: rgba(240,236,228,0.4);
+            flex-shrink: 0;
+        }
+        .guidelines-warning {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 12px;
+            color: rgba(240,236,228,0.45);
+            text-align: center;
+            margin-top: 36px;
+            letter-spacing: 1px;
+        }
+        .guidelines-coffee-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 32px auto 0;
+            filter: saturate(0.7) brightness(0.9);
+            border: 1px solid rgba(240,236,228,0.15);
+        }
+
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -236,6 +366,42 @@
     <div class="grain"></div>
     <div class="edge-shadow"></div>
     <div class="container">
+
+        <!-- ═══════════ HERO ═══════════ -->
+        <div class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h2>A place for<br>deep work.</h2>
+            </div>
+            <div class="hero-wifi">
+                <div class="wifi-row">
+                    <span class="wifi-icon">📶</span>
+                    <span>yet coffee-5G</span>
+                </div>
+                <div class="wifi-row">
+                    <span class="wifi-icon">🔒</span>
+                    <span>shutupandwork</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════ GUIDELINES ═══════════ -->
+        <div class="guidelines">
+            <div class="guidelines-bg"></div>
+            <div class="guidelines-inner">
+                <div class="guidelines-title">Guidelines</div>
+                <ul class="guidelines-list">
+                    <li>每人低消一杯飲品，平日續杯飲品可折50元</li>
+                    <li>平日不限時，假日限時三小時，續杯飲品則無限時</li>
+                    <li>店內請勿聊天，若需交談或電話請至店外</li>
+                    <li>禁帶外食與飲品</li>
+                    <li>佔據座位並離座超過15分鐘，需重新計算低消</li>
+                    <li>商業攝影或包場需求請洽店員或私訊官方IG</li>
+                </ul>
+                <img class="guidelines-coffee-img" src="Guidelines.JPG" alt="Iced coffee">
+                <div class="guidelines-warning">若違反以上且屢勸不聽者，將請您離開並不退費</div>
+            </div>
+        </div>
 
         <header>
             <div class="breadcrumb">
