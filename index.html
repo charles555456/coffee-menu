@@ -132,12 +132,12 @@
         .flipped .cat-title { text-align: right; }
 
         .cat-image {
-            display: flex; align-items: center; justify-content: center;
+            display: flex; align-items: stretch; justify-content: center;
             padding: 12px;
         }
         .img-container {
             width: 100%;
-            aspect-ratio: 3/4;
+            min-height: 200px;
             border-radius: 2px;
             overflow: hidden;
             position: relative;
@@ -296,10 +296,20 @@
             overflow: hidden;
             opacity: 0;
             animation: slideUp 0.8s ease 0.3s forwards;
-            background: #4a4540;
+        }
+        .guidelines-bg {
+            position: absolute; inset: 0;
+            background: url('Guidelines.JPG') center/cover no-repeat;
+            z-index: 0;
+        }
+        .guidelines-bg::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: rgba(40,36,32,0.72);
         }
         .guidelines-top {
             position: relative;
+            z-index: 1;
             padding: 48px 36px 32px;
         }
         .guidelines-title {
@@ -332,20 +342,15 @@
             color: rgba(240,236,228,0.5);
             flex-shrink: 0;
         }
-        .guidelines-coffee-img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-            max-height: 360px;
-        }
         .guidelines-warning {
+            position: relative;
+            z-index: 1;
             font-family: 'Noto Serif TC', serif;
             font-size: 12px;
             color: rgba(240,236,228,0.45);
             text-align: center;
             padding: 28px 36px 40px;
             letter-spacing: 1px;
-            background: #4a4540;
         }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -377,6 +382,7 @@
 
         <!-- ═══════════ GUIDELINES ═══════════ -->
         <div class="guidelines">
+            <div class="guidelines-bg"></div>
             <div class="guidelines-top">
                 <div class="guidelines-title">Guidelines</div>
                 <ul class="guidelines-list">
@@ -388,7 +394,6 @@
                     <li>商業攝影或包場需求請洽店員或私訊官方IG</li>
                 </ul>
             </div>
-            <img class="guidelines-coffee-img" src="Guidelines.JPG" alt="Iced coffee">
             <div class="guidelines-warning">若違反以上且屢勸不聽者，將請您離開並不退費</div>
         </div>
 
